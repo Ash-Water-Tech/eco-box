@@ -1,24 +1,49 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users table
+|Column             |Type       |Options                   |
+|-------------------|-----------|--------------------------|
+|nickname           |string     |null: false               |
+|email              |string     |null: false, unique: true |
+|encrypted_password |string     |null: false               |
+|last_name          |string     |null: false               |
+|first_name         |string     |null: false               |
+|furi_last          |string     |null: false               |
+|furi_first         |string     |null: false               |
+|date_of_birth      |date       |null: false               |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+has_many :purchases
 
-* System dependencies
+## stores table
+|Column             |Type       |Options                   |
+|-------------------|-----------|--------------------------|
+|name               |string     |null: false               |
+|email              |string     |null: false, unique: true |
+|encrypted_password |string     |null: false               |
 
-* Configuration
 
-* Database creation
+## boxes table
+|Column           |Type            |Options                               |
+|-----------------|--------------- |--------------------------------------|
+|name             |string          |null: false                           |
+|price            |integer         |null: false                           |
+|item_description |text            |null: false                           |
+|finish-date      |integer         |null: false                           |
+|store            |references      |foreign_key: true                     |
 
-* Database initialization
+### Association
+belongs_to :store
+has_one :purchase
 
-* How to run the test suite
+## purchases table
+|Column    |Type       |Options           |
+|--------- |-----------|------------------|
+|user      |references |foreign_key: true |
+|boxes      |references |foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Association
+has_one :address
+belongs_to :user
+belongs_to :box
