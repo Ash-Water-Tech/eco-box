@@ -57,7 +57,6 @@
 |first_name         |string     |null: false               |
 |furi_last          |string     |null: false               |
 |furi_first         |string     |null: false               |
-|date_of_birth      |date       |null: false               |
 
 
 ### Association

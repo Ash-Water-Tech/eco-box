@@ -8,6 +8,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+  <div class="user-login">
+    <%= link_to "ユーザーログイン", new_user_registration_path %>
+  </div>
+  <div class="store-login">
+    <%= link_to "ショップログイン", new_store_registration_path%>
+  </header>
 
   <body>
     <%= yield %>
