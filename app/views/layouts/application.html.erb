@@ -9,11 +9,21 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <header>
-  <div class="user-login">
-    <%= link_to "ユーザーログイン", new_user_registration_path %>
+  <div class="user-sign-up">
+    <%= link_to "ユーザーサインアップ", new_user_registration_path %>
+  </div>
+  <div class="store-sign-up">
+    <%= link_to "ショップサインアップ", new_store_registration_path%>
   </div>
   <div class="store-login">
-    <%= link_to "ショップログイン", new_store_registration_path%>
+    <%= link_to "登録済みショップ様ログイン", new_store_session_path%>
+  </div>
+  <% if store_signed_in? %>
+  <div class="store-name"><%= current_store.name %>
+  <div class="logout">
+    <%= link_to "ショップログアウト" , destroy_store_session_path, method: :delete%>
+  </div>
+  <% end %>
   </header>
 
   <body>

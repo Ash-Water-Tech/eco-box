@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2021_03_17_072944) do
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
-    t.string "address", null: false
+    t.text "address", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
