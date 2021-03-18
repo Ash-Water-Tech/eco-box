@@ -2,10 +2,35 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "users/shared/error_messages", resource: resource %>
+  
+  <div class="nickname">
+    <%= f.label :ニックネーム %><br />
+    <%= f.text_field :nickname, autofocus: true %>
+  </div>
+
+  <div class="last_name">
+    <%= f.label :"名字" %><br />
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div class="furi_last">
+    <%= f.label :"ふりがな" %><br />
+    <%= f.text_field :furi_last %>
+  </div>
+
+  <div class="first_name">
+    <%= f.label :"名前" %><br />
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div class="furi_first">
+    <%= f.label :"ふりがな" %><br />
+    <%= f.text_field :furi_first %>
+  </div>
 
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autocomplete: "email" %>
   </div>
 
   <div class="field">

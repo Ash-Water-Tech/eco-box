@@ -12,6 +12,17 @@
   <div class="user-sign-up">
     <%= link_to "ユーザーサインアップ", new_user_registration_path %>
   </div>
+  <div class="user-login">
+    <%= link_to "登録済みユーザーログイン", new_user_session_path %>
+  </div>
+  <% if user_signed_in? %>
+  <div class="store-name"><%= current_user.nickname %>
+  <div class="logout">
+    <%= link_to "ユーザーログアウト" , destroy_user_session_path, method: :delete%>
+  </div>
+  <% end %>
+  <br>
+  <br>
   <div class="store-sign-up">
     <%= link_to "ショップサインアップ", new_store_registration_path%>
   </div>
