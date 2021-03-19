@@ -8,6 +8,41 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
+　<% unless user_signed_in? || store_signed_in? %>
+      <div class="user-sign-up">
+        <%= link_to "ユーザーサインアップ", new_user_registration_path %>
+      </div>
+      <div class="user-login">
+        <%= link_to "登録済みユーザーログイン", new_user_session_path %>
+  <% end %>
+  <% if user_signed_in? %>
+      </div>
+      <div class="user-name"><%= current_user.nickname %>
+      <div class="logout">
+        <%= link_to "ユーザーログアウト" , destroy_user_session_path, method: :delete%>
+      </div>
+  <% end %>
+
+  <br>
+  <br>
+
+  <% unless user_signed_in? || store_signed_in? %>
+      <div class="store-sign-up">
+        <%= link_to "ショップサインアップ", new_store_registration_path%>
+      </div>
+      <div class="store-login">
+        <%= link_to "登録済みショップ様ログイン", new_store_session_path%>
+  <% end %>
+  <% if store_signed_in? %>
+      </div>
+      <div class="store-name"><%= current_store.name %>
+      <div class="logout">
+        <%= link_to "ストアログアウト" , destroy_user_session_path, method: :delete%>
+      </div>
+  <% end %>
+
+  </header>
 
   <body>
     <%= yield %>
